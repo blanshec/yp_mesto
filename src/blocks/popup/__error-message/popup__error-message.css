@@ -1,0 +1,10 @@
+.popup__error-message {
+  width: 164px;
+  height: 11px;
+
+  font-family: Inter;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #ff0000;
+}

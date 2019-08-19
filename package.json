@@ -1,0 +1,22 @@
+{
+  "name": "yp_mesto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blanshec/yp_mesto.git"
+  },
+  "author": "blanshec",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blanshec/yp_mesto/issues"
+  },
+  "homepage": "https://github.com/blanshec/yp_mesto#readme",
+  "devDependencies": {
+    "webpack": "^4.39.2"
+  }
+}
