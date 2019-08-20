@@ -1,4 +1,5 @@
 //helper function
+import closeSvg from "../images/close.svg";
 const createElementWithClass = (assignedTag, assignedClass) => {
   const newElement = document.createElement(assignedTag);
   newElement.classList.add(assignedClass);
@@ -223,7 +224,7 @@ class Popup {
     secondInputElement.name = secondInputName;
     secondInputElement.placeholder = secondInputPlaceHolder;
     buttonElement.textContent = buttonText;
-    popupCloseButtonElement.src = "./images/close.svg";
+    popupCloseButtonElement.src = closeSvg;
 
     firstInputElement.classList.add(firstInputClass);
     secondInputElement.classList.add(secondInputClass);
@@ -270,7 +271,7 @@ class PopupImage {
       "popup__close"
     );
 
-    popupCloseButtonElement.src = "./images/close.svg";
+    popupCloseButtonElement.src = closeSvg;
     popupContentElement.style.backgroundImage = image.style.backgroundImage;
 
     popupContentElement.appendChild(popupCloseButtonElement);
@@ -288,7 +289,7 @@ class PopupImage {
 }
 
 const api = new Api({
-  baseUrl: "http://95.216.175.5/cohort1",
+  baseUrl: "https://praktikum.tk/cohort1",
   headers: {
     authorization: "8020023e-2e14-4363-981a-b57e84f9819e",
     "Content-Type": "application/json"
@@ -355,8 +356,10 @@ const resetError = container => {
 
 // UPDATE PROFILE INFO BLOCK START
 const loadProfile = () => {
-  [userName, userJob] = document.querySelector(".user-info__data").children;
-  userAvatar = document.querySelector(".user-info__photo");
+  const [userName, userJob] = document.querySelector(
+    ".user-info__data"
+  ).children;
+  const userAvatar = document.querySelector(".user-info__photo");
 
   api
     .getUserData()
@@ -371,7 +374,7 @@ const loadProfile = () => {
 };
 const updateProfileInfo = closePopup => {
   event.preventDefault();
-  [inputName, inputJob] = event.target.closest(".popup__form").elements;
+  const [inputName, inputJob] = event.target.closest(".popup__form").elements;
   api
     .patchProfile(inputName.value, inputJob.value)
     .then(res => {
@@ -389,9 +392,11 @@ const updateProfileInfo = closePopup => {
     });
 };
 const insertUserDataToInput = popupElement => {
-  [userName, userJob] = document.querySelector(".user-info__data").children;
+  const [userName, userJob] = document.querySelector(
+    ".user-info__data"
+  ).children;
   const form = popupElement.querySelector(".popup__form");
-  [inputName, inputJob] = form.elements;
+  const [inputName, inputJob] = form.elements;
   inputName.value = userName.textContent;
   inputJob.value = userJob.textContent;
 };
