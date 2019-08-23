@@ -1,12 +1,5 @@
-import Api from "../../scripts/api";
+import { api } from "../../scripts/script";
 import Card from "../place-card/card";
-const api = new Api({
-  baseUrl: "https://praktikum.tk/cohort1",
-  headers: {
-    authorization: "8020023e-2e14-4363-981a-b57e84f9819e",
-    "Content-Type": "application/json"
-  }
-});
 
 export default class CardList {
   constructor(container) {

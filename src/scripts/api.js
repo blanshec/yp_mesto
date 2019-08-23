@@ -1,4 +1,4 @@
-export default class Api {
+class Api {
   constructor(options) {
     this.url = options.baseUrl;
     this.auth = options.headers.authorization;
@@ -41,3 +41,10 @@ export default class Api {
     });
   }
 }
+export const api = new Api({
+  baseUrl: "https://praktikum.tk/cohort1",
+  headers: {
+    authorization: "8020023e-2e14-4363-981a-b57e84f9819e",
+    "Content-Type": "application/json"
+  }
+});

@@ -1,4 +1,5 @@
-//helper function
+export { api } from "./api";
+
 import Popup from "../blocks/popup/popup.js";
 import PopupImage from "../blocks/popup/popupImage.js";
 import CardList from "../blocks/places-list/cardList.js";
@@ -26,6 +27,3 @@ document.querySelector(".places-list").addEventListener("click", () => {
     popup.open();
   }
 });
-
-/* Отличная работа! Но нужно поправить, чтобы попап редактирования профиля при сохранении 
-данных закрывался только после того как данные успешно отправлены на сервер  */
