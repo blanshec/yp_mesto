@@ -1,11 +1,12 @@
 {
   "name": "yp_mesto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open --watch"
+    "dev": "webpack-dev-server --mode development --open --watch",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/blanshec/yp_mesto/issues"
   },
-  "homepage": "https://github.com/blanshec/yp_mesto#readme",
+  "homepage": "https://github.com/blanshec/yp_mesto",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
