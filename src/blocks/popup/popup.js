@@ -1,5 +1,6 @@
 import closeSvg from "../../images/close.svg";
-import { updateProfileInfo } from "../profile/profile";
+import { cards } from "../../scripts/script";
+import { profile } from "../../scripts/script";
 
 const createElementWithClass = (assignedTag, assignedClass) => {
   const newElement = document.createElement(assignedTag);
@@ -62,7 +63,7 @@ export default class Popup {
         cards.addCard(form.elements.placename.value, form.elements.link.value);
         this.close();
       } else if (form.name === "patchProfile") {
-        updateProfileInfo(this.close.bind(this));
+        profile.updateProfileInfo(this.close.bind(this));
         /* Надо исправить: попап должен закрываться только если данные успешно отправлены на сервер */
       }
       renderLoading(false);

@@ -55,5 +55,8 @@ const validateInput = () => {
     }
   }
 };
+const listenToValidateInput = () => {
+  document.querySelector(".root").addEventListener("input", validateInput);
+};
 
-export { validateInput };
+export { listenToValidateInput };

@@ -1,16 +1,16 @@
 export { api } from "./api";
-
 import Popup from "../blocks/popup/popup.js";
 import PopupImage from "../blocks/popup/popupImage.js";
 import CardList from "../blocks/places-list/cardList.js";
-import { validateInput } from "../blocks/popup/__form/formValidation";
-import { insertUserDataToInput } from "../blocks/profile/profile";
+import ProfileManager from "../blocks/profile/profile";
+import { listenToValidateInput } from "../blocks/popup/__form/formValidation";
 
-const placesList = document.querySelector(".places-list");
-new CardList(placesList);
+export const cards = new CardList(document.querySelector(".places-list"));
+export const profile = new ProfileManager();
+profile.loadProfile();
 
 //forms
-document.querySelector(".root").addEventListener("input", validateInput);
+listenToValidateInput();
 document.querySelector(".profile").addEventListener("click", () => {
   if (event.target.classList.contains("user-info__button")) {
     const popup = new Popup("popup_new-card");
@@ -18,7 +18,7 @@ document.querySelector(".profile").addEventListener("click", () => {
   } else if (event.target.classList.contains("user-info__button_edit")) {
     const popup = new Popup("popup_edit-profile");
     popup.open();
-    insertUserDataToInput(popup.popupElement);
+    profile.insertUserDataToInput(popup.popupElement);
   }
 });
 document.querySelector(".places-list").addEventListener("click", () => {
