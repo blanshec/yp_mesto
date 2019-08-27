@@ -1,7 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // добавили плагин
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: { main: "./src/index.js" },
   output: {
@@ -20,7 +20,21 @@ module.exports = {
 
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1
+            }
+          },
+          {
+            loader: "postcss-loader"
+          }
+        ]
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
